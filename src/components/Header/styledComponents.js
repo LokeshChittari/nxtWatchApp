@@ -115,7 +115,7 @@ export const CloseButton = styled.div`
   color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
 `
 
-export const MenuList = styled.ul`
+export const NavMenuList = styled.ul`
   width: 100%;
   height: 100%;
   list-style-type: none;
@@ -126,14 +126,14 @@ export const MenuList = styled.ul`
   align-items: center;
 `
 
-export const MenuItemContainer = styled.li`
+export const NavItemContainer = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${props => activeMenuBg(props)};
   color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
 `
-export const MenuItem = styled.div`
+export const NavItem = styled.div`
   width: 150px;
   display: flex;
   align-items: center;
@@ -145,7 +145,7 @@ export const IconBox = styled.div`
   padding: 0;
   margin: 0;
 `
-export const MenuItemName = styled.p`
+export const NavItemName = styled.p`
   font-family: 'Roboto';
   font-weight: ${props => (props.isActive === true ? 'bold' : 'normal')};
   margin-left: 20px;

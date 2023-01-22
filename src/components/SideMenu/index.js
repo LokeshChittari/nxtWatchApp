@@ -5,8 +5,8 @@ import {SiYoutubegaming} from 'react-icons/si'
 import {MdPlaylistAdd} from 'react-icons/md'
 
 import {
-  SideMenuContainer,
-  MenuList,
+  NavContainer,
+  NavItemsList,
   MenuItemContainer,
   MenuItem,
   ContactUsContainer,
@@ -19,9 +19,13 @@ import {
 const SideMenu = props => {
   const {theme, activeMenu} = props
   return (
-    <SideMenuContainer theme={theme}>
-      <MenuList>
-        <Link to="/" style={{textDecoration: 'none', outline: 'none'}}>
+    <NavContainer theme={theme}>
+      <NavItemsList>
+        <Link
+          key="home"
+          to="/"
+          style={{textDecoration: 'none', outline: 'none'}}
+        >
           <MenuItemContainer isActive={activeMenu === 'HOME'} theme={theme}>
             <AiFillHome
               style={{
@@ -33,7 +37,11 @@ const SideMenu = props => {
             <MenuItem isActive={activeMenu === 'HOME'}>Home</MenuItem>
           </MenuItemContainer>
         </Link>
-        <Link to="/trending" style={{textDecoration: 'none', outline: 'none'}}>
+        <Link
+          key="trending"
+          to="/trending"
+          style={{textDecoration: 'none', outline: 'none'}}
+        >
           <MenuItemContainer isActive={activeMenu === 'TRENDING'} theme={theme}>
             <HiFire
               style={{
@@ -45,7 +53,11 @@ const SideMenu = props => {
             <MenuItem isActive={activeMenu === 'TRENDING'}>Trending</MenuItem>
           </MenuItemContainer>
         </Link>
-        <Link to="/gaming" style={{textDecoration: 'none', outline: 'none'}}>
+        <Link
+          key="gaming"
+          to="/gaming"
+          style={{textDecoration: 'none', outline: 'none'}}
+        >
           <MenuItemContainer isActive={activeMenu === 'GAMING'} theme={theme}>
             <SiYoutubegaming
               style={{
@@ -58,6 +70,7 @@ const SideMenu = props => {
           </MenuItemContainer>
         </Link>
         <Link
+          key="savedVideos"
           to="/saved-videos"
           style={{textDecoration: 'none', outline: 'none'}}
         >
@@ -77,7 +90,7 @@ const SideMenu = props => {
             </MenuItem>
           </MenuItemContainer>
         </Link>
-      </MenuList>
+      </NavItemsList>
       <ContactUsContainer>
         <ContactUsHeading theme={theme}>CONTACT US</ContactUsHeading>
         <IconsList>
@@ -98,7 +111,7 @@ const SideMenu = props => {
           Enjoy! Now to see your channels and recommendations!
         </Note>
       </ContactUsContainer>
-    </SideMenuContainer>
+    </NavContainer>
   )
 }
 

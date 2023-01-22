@@ -15,7 +15,7 @@ const activeMenuBg = props => {
   return bgColor
 }
 
-export const SideMenuContainer = styled.div`
+export const NavContainer = styled.nav`
   display: none;
 
   @media screen and (min-width: 768px) {
@@ -29,7 +29,7 @@ export const SideMenuContainer = styled.div`
       props.theme === 'dark' ? '#212121' : '#ffffff'};
   }
 `
-export const MenuList = styled.ul`
+export const NavItemsList = styled.ul`
   list-style-type: none;
   padding-left: 0;
 `

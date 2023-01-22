@@ -23,10 +23,10 @@ import {
   TriggerButton,
   LogoutIcon,
   CloseButton,
-  MenuList,
-  MenuItemContainer,
-  MenuItem,
-  MenuItemName,
+  NavMenuList,
+  NavItemContainer,
+  NavItem,
+  NavItemName,
   ModalContainer,
   IconBox,
   LogoutPopupModal,
@@ -147,8 +147,9 @@ const Header = props => {
                       >
                         <AiOutlineClose />
                       </CloseButton>
-                      <MenuList>
+                      <NavMenuList>
                         <Link
+                          key="home"
                           to="/"
                           style={{
                             textDecoration: 'none',
@@ -156,11 +157,11 @@ const Header = props => {
                             width: '100%',
                           }}
                         >
-                          <MenuItemContainer
+                          <NavItemContainer
                             isActive={activeMenu === 'HOME'}
                             theme={theme}
                           >
-                            <MenuItem>
+                            <NavItem>
                               <IconBox>
                                 <AiFillHome
                                   style={{
@@ -174,13 +175,14 @@ const Header = props => {
                                 />
                               </IconBox>
 
-                              <MenuItemName isActive={activeMenu === 'HOME'}>
+                              <NavItemName isActive={activeMenu === 'HOME'}>
                                 Home
-                              </MenuItemName>
-                            </MenuItem>
-                          </MenuItemContainer>
+                              </NavItemName>
+                            </NavItem>
+                          </NavItemContainer>
                         </Link>
                         <Link
+                          key="trending"
                           to="/trending"
                           style={{
                             textDecoration: 'none',
@@ -188,11 +190,11 @@ const Header = props => {
                             width: '100%',
                           }}
                         >
-                          <MenuItemContainer
+                          <NavItemContainer
                             isActive={activeMenu === 'TRENDING'}
                             theme={theme}
                           >
-                            <MenuItem>
+                            <NavItem>
                               <IconBox>
                                 <HiFire
                                   style={{
@@ -205,15 +207,14 @@ const Header = props => {
                                   }}
                                 />
                               </IconBox>
-                              <MenuItemName
-                                isActive={activeMenu === 'TRENDING'}
-                              >
+                              <NavItemName isActive={activeMenu === 'TRENDING'}>
                                 Trending
-                              </MenuItemName>
-                            </MenuItem>
-                          </MenuItemContainer>
+                              </NavItemName>
+                            </NavItem>
+                          </NavItemContainer>
                         </Link>
                         <Link
+                          key="gaming"
                           to="/gaming"
                           style={{
                             textDecoration: 'none',
@@ -221,11 +222,11 @@ const Header = props => {
                             width: '100%',
                           }}
                         >
-                          <MenuItemContainer
+                          <NavItemContainer
                             isActive={activeMenu === 'GAMING'}
                             theme={theme}
                           >
-                            <MenuItem>
+                            <NavItem>
                               <IconBox>
                                 <SiYoutubegaming
                                   style={{
@@ -238,13 +239,14 @@ const Header = props => {
                                   }}
                                 />
                               </IconBox>
-                              <MenuItemName isActive={activeMenu === 'GAMING'}>
+                              <NavItemName isActive={activeMenu === 'GAMING'}>
                                 Gaming
-                              </MenuItemName>
-                            </MenuItem>
-                          </MenuItemContainer>
+                              </NavItemName>
+                            </NavItem>
+                          </NavItemContainer>
                         </Link>
                         <Link
+                          key="savedVideos"
                           to="/saved-videos"
                           style={{
                             textDecoration: 'none',
@@ -252,11 +254,11 @@ const Header = props => {
                             width: '100%',
                           }}
                         >
-                          <MenuItemContainer
+                          <NavItemContainer
                             isActive={activeMenu === 'SAVED_VIDEOS'}
                             theme={theme}
                           >
-                            <MenuItem>
+                            <NavItem>
                               <IconBox>
                                 <MdPlaylistAdd
                                   style={{
@@ -269,15 +271,15 @@ const Header = props => {
                                   }}
                                 />
                               </IconBox>
-                              <MenuItemName
+                              <NavItemName
                                 isActive={activeMenu === 'SAVED_VIDEOS'}
                               >
                                 Saved Videos
-                              </MenuItemName>
-                            </MenuItem>
-                          </MenuItemContainer>
+                              </NavItemName>
+                            </NavItem>
+                          </NavItemContainer>
                         </Link>
-                      </MenuList>
+                      </NavMenuList>
                     </ModalContainer>
                   )}
                 </Popup>
