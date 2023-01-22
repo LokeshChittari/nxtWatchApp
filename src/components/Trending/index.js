@@ -11,6 +11,7 @@ import ThemeContext from '../../context/ThemeContext'
 
 import {
   TrendingContainer,
+  TrendingContentContainer,
   BodyContainer,
   BannerContainer,
   MenuIconContainer,
@@ -203,15 +204,15 @@ class Trending extends Component {
           const {isDarkTheme} = value
           const theme = isDarkTheme ? 'dark' : 'light'
           return (
-            <>
+            <TrendingContainer data-testid="trending" theme={theme}>
               <Header activeMenu="TRENDING" />
-              <TrendingContainer theme={theme} data-testid="trending">
+              <BodyContainer>
                 <SideMenu theme={theme} activeMenu="TRENDING" />
-                <BodyContainer theme={theme}>
+                <TrendingContentContainer theme={theme}>
                   {this.renderResponse(theme)}
-                </BodyContainer>
-              </TrendingContainer>
-            </>
+                </TrendingContentContainer>
+              </BodyContainer>
+            </TrendingContainer>
           )
         }}
       </ThemeContext.Consumer>

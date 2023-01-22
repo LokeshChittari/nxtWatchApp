@@ -38,12 +38,11 @@ export const MenuItemContainer = styled.li`
   display: flex;
   align-items: center;
   background-color: ${props => activeMenuBg(props)};
-  color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
 `
 
 export const MenuItem = styled.p`
   font-family: 'Roboto';
-  //   color: #000000;
+  color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
   margin-left: 20px;
   font-weight: ${props => (props.isActive === true ? 'bold' : 'normal')};
 `

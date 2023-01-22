@@ -1,17 +1,23 @@
 import styled from 'styled-components'
 
 export const TrendingContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 91.5vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   background-color: ${props =>
     props.theme === 'dark' ? '#181818' : '#f9f9f9'};
 `
+
 export const BodyContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 91.5vh;
+`
+
+export const TrendingContentContainer = styled.div`
   width: 100%;
   overflow-y: auto;
 `
-
 export const BannerContainer = styled.div`
   display: flex;
   align-items: center;

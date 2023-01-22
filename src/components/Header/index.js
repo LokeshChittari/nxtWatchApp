@@ -13,9 +13,9 @@ import ThemeContext from '../../context/ThemeContext'
 
 import {
   Navbar,
-  //   LinkElement,
   Logo,
-  NavItems,
+  NavItemsList,
+  NavItem,
   ThemeButton,
   ProfileImage,
   LogoutButton,
@@ -24,9 +24,9 @@ import {
   LogoutIcon,
   CloseButton,
   NavMenuList,
-  NavItemContainer,
-  NavItem,
-  NavItemName,
+  NavMenuItemContainer,
+  NavMenuItem,
+  NavMenuItemName,
   ModalContainer,
   IconBox,
   LogoutPopupModal,
@@ -76,38 +76,35 @@ const Header = props => {
                   alt="website logo"
                 />
               </Link>
-              <NavItems>
-                <ThemeButton
-                  type="button"
-                  onClick={changeTheme}
-                  data-testid="theme"
-                >
-                  {isDarkTheme ? (
-                    <CiLight style={{color: '#ffffff', fontSize: '30px'}} />
-                  ) : (
-                    <MdDarkMode style={{fontSize: '30px'}} />
-                  )}
-                </ThemeButton>
-                <ProfileImage
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
-                  alt="profile"
-                />
-                <Popup
-                  trigger={
-                    <LogoutButton
-                      type="button"
-                      //   theme={theme}
-                      //   onClick={onClickLogout}
-                    >
-                      Logout
-                    </LogoutButton>
-                  }
-                  modal
-                  //   position="center center"
-                >
-                  {close => renderLogoutPopup(theme, close)}
-                </Popup>
-              </NavItems>
+              <NavItemsList>
+                <NavItem key="themeButton">
+                  <ThemeButton
+                    type="button"
+                    onClick={changeTheme}
+                    data-testid="theme"
+                  >
+                    {isDarkTheme ? (
+                      <CiLight style={{color: '#ffffff', fontSize: '30px'}} />
+                    ) : (
+                      <MdDarkMode style={{fontSize: '30px'}} />
+                    )}
+                  </ThemeButton>
+                </NavItem>
+                <NavItem key="profileIcon">
+                  <ProfileImage
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
+                    alt="profile"
+                  />
+                </NavItem>
+                <NavItem key="logoutButton">
+                  <Popup
+                    trigger={<LogoutButton type="button">Logout</LogoutButton>}
+                    modal
+                  >
+                    {close => renderLogoutPopup(theme, close)}
+                  </Popup>
+                </NavItem>
+              </NavItemsList>
             </Navbar>
 
             <NavBarMobile theme={theme}>
@@ -117,51 +114,46 @@ const Header = props => {
                   alt="website logo"
                 />
               </Link>
-              <NavItems>
-                <ThemeButton type="button" onClick={changeTheme}>
-                  {isDarkTheme ? (
-                    <CiLight style={{color: '#ffffff', fontSize: '30px'}} />
-                  ) : (
-                    <MdDarkMode style={{fontSize: '30px'}} />
-                  )}
-                </ThemeButton>
-                <Popup
-                  trigger={
-                    <TriggerButton type="button">
-                      <GiHamburgerMenu
-                        style={{
-                          fontSize: '30px',
-                          color: theme === 'dark' ? '#ffffff' : '#000000',
-                        }}
-                      />
-                    </TriggerButton>
-                  }
-                  modal
-                >
-                  {close => (
-                    <ModalContainer theme={theme}>
-                      <CloseButton
-                        type="button"
-                        theme={theme}
-                        onClick={() => close()}
-                      >
-                        <AiOutlineClose />
-                      </CloseButton>
-                      <NavMenuList>
-                        <Link
-                          key="home"
-                          to="/"
+              <NavItemsList>
+                <NavItem key="themeButton">
+                  <ThemeButton type="button" onClick={changeTheme}>
+                    {isDarkTheme ? (
+                      <CiLight style={{color: '#ffffff', fontSize: '30px'}} />
+                    ) : (
+                      <MdDarkMode style={{fontSize: '30px'}} />
+                    )}
+                  </ThemeButton>
+                </NavItem>
+                <NavItem key="hamburgerMenu">
+                  <Popup
+                    trigger={
+                      <TriggerButton type="button">
+                        <GiHamburgerMenu
                           style={{
-                            textDecoration: 'none',
-                            outline: 'none',
-                            width: '100%',
+                            fontSize: '30px',
+                            color: theme === 'dark' ? '#ffffff' : '#000000',
                           }}
+                        />
+                      </TriggerButton>
+                    }
+                    modal
+                  >
+                    {close => (
+                      <ModalContainer theme={theme}>
+                        <CloseButton
+                          type="button"
+                          theme={theme}
+                          onClick={() => close()}
                         >
-                          <NavItemContainer
+                          <AiOutlineClose />
+                        </CloseButton>
+                        <NavMenuList>
+                          <NavMenuItemContainer
+                            key="home"
                             isActive={activeMenu === 'HOME'}
                             theme={theme}
                           >
-                            <NavItem>
+                            <NavMenuItem>
                               <IconBox>
                                 <AiFillHome
                                   style={{
@@ -169,32 +161,31 @@ const Header = props => {
                                       activeMenu === 'HOME'
                                         ? '#ff0b37'
                                         : '#475569',
-                                    // fontSize: '20px',
-                                    // marginLeft: '25px',
                                   }}
                                 />
                               </IconBox>
-
-                              <NavItemName isActive={activeMenu === 'HOME'}>
-                                Home
-                              </NavItemName>
-                            </NavItem>
-                          </NavItemContainer>
-                        </Link>
-                        <Link
-                          key="trending"
-                          to="/trending"
-                          style={{
-                            textDecoration: 'none',
-                            outline: 'none',
-                            width: '100%',
-                          }}
-                        >
-                          <NavItemContainer
+                              <Link
+                                to="/"
+                                style={{
+                                  textDecoration: 'none',
+                                  outline: 'none',
+                                }}
+                              >
+                                <NavMenuItemName
+                                  theme={theme}
+                                  isActive={activeMenu === 'HOME'}
+                                >
+                                  Home
+                                </NavMenuItemName>
+                              </Link>
+                            </NavMenuItem>
+                          </NavMenuItemContainer>
+                          <NavMenuItemContainer
+                            key="trending"
                             isActive={activeMenu === 'TRENDING'}
                             theme={theme}
                           >
-                            <NavItem>
+                            <NavMenuItem>
                               <IconBox>
                                 <HiFire
                                   style={{
@@ -202,31 +193,31 @@ const Header = props => {
                                       activeMenu === 'TRENDING'
                                         ? '#ff0b37'
                                         : '#475569',
-                                    // fontSize: '25px',
-                                    // marginLeft: '20px',
                                   }}
                                 />
                               </IconBox>
-                              <NavItemName isActive={activeMenu === 'TRENDING'}>
-                                Trending
-                              </NavItemName>
-                            </NavItem>
-                          </NavItemContainer>
-                        </Link>
-                        <Link
-                          key="gaming"
-                          to="/gaming"
-                          style={{
-                            textDecoration: 'none',
-                            outline: 'none',
-                            width: '100%',
-                          }}
-                        >
-                          <NavItemContainer
+                              <Link
+                                to="/trending"
+                                style={{
+                                  textDecoration: 'none',
+                                  outline: 'none',
+                                }}
+                              >
+                                <NavMenuItemName
+                                  theme={theme}
+                                  isActive={activeMenu === 'TRENDING'}
+                                >
+                                  Trending
+                                </NavMenuItemName>
+                              </Link>
+                            </NavMenuItem>
+                          </NavMenuItemContainer>
+                          <NavMenuItemContainer
+                            key="gaming"
                             isActive={activeMenu === 'GAMING'}
                             theme={theme}
                           >
-                            <NavItem>
+                            <NavMenuItem>
                               <IconBox>
                                 <SiYoutubegaming
                                   style={{
@@ -234,31 +225,32 @@ const Header = props => {
                                       activeMenu === 'GAMING'
                                         ? '#ff0b37'
                                         : '#475569',
-                                    // fontSize: '20px',
-                                    // marginLeft: '25px',
                                   }}
                                 />
                               </IconBox>
-                              <NavItemName isActive={activeMenu === 'GAMING'}>
-                                Gaming
-                              </NavItemName>
-                            </NavItem>
-                          </NavItemContainer>
-                        </Link>
-                        <Link
-                          key="savedVideos"
-                          to="/saved-videos"
-                          style={{
-                            textDecoration: 'none',
-                            outline: 'none',
-                            width: '100%',
-                          }}
-                        >
-                          <NavItemContainer
+                              <Link
+                                to="/gaming"
+                                style={{
+                                  textDecoration: 'none',
+                                  outline: 'none',
+                                }}
+                              >
+                                <NavMenuItemName
+                                  theme={theme}
+                                  isActive={activeMenu === 'GAMING'}
+                                >
+                                  Gaming
+                                </NavMenuItemName>
+                              </Link>
+                            </NavMenuItem>
+                          </NavMenuItemContainer>
+
+                          <NavMenuItemContainer
+                            key="savedVideos"
                             isActive={activeMenu === 'SAVED_VIDEOS'}
                             theme={theme}
                           >
-                            <NavItem>
+                            <NavMenuItem>
                               <IconBox>
                                 <MdPlaylistAdd
                                   style={{
@@ -266,44 +258,53 @@ const Header = props => {
                                       activeMenu === 'SAVED_VIDEOS'
                                         ? '#ff0b37'
                                         : '#475569',
-                                    // fontSize: '20px',
-                                    // marginLeft: '25px',
                                   }}
                                 />
                               </IconBox>
-                              <NavItemName
-                                isActive={activeMenu === 'SAVED_VIDEOS'}
+                              <Link
+                                to="/saved-videos"
+                                style={{
+                                  textDecoration: 'none',
+                                  outline: 'none',
+                                }}
                               >
-                                Saved Videos
-                              </NavItemName>
-                            </NavItem>
-                          </NavItemContainer>
-                        </Link>
-                      </NavMenuList>
-                    </ModalContainer>
-                  )}
-                </Popup>
-                <Popup
-                  trigger={
-                    <LogoutIcon
-                      type="button"
-                      //   theme={theme}
-                      //   onClick={onClickLogout}
-                    >
-                      <FiLogOut
-                        style={{
-                          fontSize: '30px',
-                          color: theme === 'dark' ? '#ffffff' : '#000000',
-                        }}
-                      />
-                    </LogoutIcon>
-                  }
-                  modal
-                  //   position="center center"
-                >
-                  {close => renderLogoutPopup(theme, close)}
-                </Popup>
-              </NavItems>
+                                <NavMenuItemName
+                                  theme={theme}
+                                  isActive={activeMenu === 'SAVED_VIDEOS'}
+                                >
+                                  Saved Videos
+                                </NavMenuItemName>
+                              </Link>
+                            </NavMenuItem>
+                          </NavMenuItemContainer>
+                        </NavMenuList>
+                      </ModalContainer>
+                    )}
+                  </Popup>
+                </NavItem>
+                <NavItem key="logoutIcon">
+                  <Popup
+                    trigger={
+                      <LogoutIcon
+                        type="button"
+                        //   theme={theme}
+                        //   onClick={onClickLogout}
+                      >
+                        <FiLogOut
+                          style={{
+                            fontSize: '30px',
+                            color: theme === 'dark' ? '#ffffff' : '#000000',
+                          }}
+                        />
+                      </LogoutIcon>
+                    }
+                    modal
+                    //   position="center center"
+                  >
+                    {close => renderLogoutPopup(theme, close)}
+                  </Popup>
+                </NavItem>
+              </NavItemsList>
             </NavBarMobile>
           </>
         )

@@ -11,6 +11,7 @@ import ThemeContext from '../../context/ThemeContext'
 import {
   SavedVideosContainer,
   BodyContainer,
+  SavedVideosContentContainer,
   BannerContainer,
   MenuIconContainer,
   MenuHeading,
@@ -106,17 +107,17 @@ const SavedVideos = () => {
         const {isDarkTheme, savedVideosList} = value
         const theme = isDarkTheme ? 'dark' : 'light'
         return (
-          <>
+          <SavedVideosContainer data-testid="savedVideos" theme={theme}>
             <Header activeMenu="SAVED_VIDEOS" />
-            <SavedVideosContainer theme={theme} data-testid="savedVideos">
+            <BodyContainer>
               <SideMenu theme={theme} activeMenu="SAVED_VIDEOS" />
-              <BodyContainer theme={theme}>
+              <SavedVideosContentContainer theme={theme}>
                 {savedVideosList.length > 0
                   ? renderVideosListView(theme, savedVideosList)
                   : renderFailureView(theme)}
-              </BodyContainer>
-            </SavedVideosContainer>
-          </>
+              </SavedVideosContentContainer>
+            </BodyContainer>
+          </SavedVideosContainer>
         )
       }}
     </ThemeContext.Consumer>

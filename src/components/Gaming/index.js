@@ -9,8 +9,9 @@ import Header from '../Header'
 import ThemeContext from '../../context/ThemeContext'
 
 import {
-  TrendingContainer,
+  GamingContainer,
   BodyContainer,
+  GamingContentContainer,
   BannerContainer,
   MenuIconContainer,
   MenuHeading,
@@ -169,15 +170,15 @@ class Trending extends Component {
           const {isDarkTheme} = value
           const theme = isDarkTheme ? 'dark' : 'light'
           return (
-            <>
+            <GamingContainer data-testid="gaming" theme={theme}>
               <Header activeMenu="GAMING" />
-              <TrendingContainer theme={theme} data-testid="gaming">
+              <BodyContainer>
                 <SideMenu theme={theme} activeMenu="GAMING" />
-                <BodyContainer theme={theme}>
+                <GamingContentContainer theme={theme}>
                   {this.renderResponse(theme)}
-                </BodyContainer>
-              </TrendingContainer>
-            </>
+                </GamingContentContainer>
+              </BodyContainer>
+            </GamingContainer>
           )
         }}
       </ThemeContext.Consumer>

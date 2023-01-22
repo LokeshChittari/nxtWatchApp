@@ -5,6 +5,7 @@ import SideMenu from '../SideMenu'
 import {
   NotFoundContainer,
   BodyContainer,
+  NotFoundContentContainer,
   NotFoundImage,
   NotFoundPageResponse,
   NotFoundPageDescription,
@@ -17,11 +18,11 @@ const NotFound = () => (
       const theme = isDarkTheme ? 'dark' : 'light'
 
       return (
-        <>
+        <NotFoundContainer theme={theme}>
           <Header activeMenu="" />
-          <NotFoundContainer theme={theme}>
+          <BodyContainer>
             <SideMenu theme={theme} activeMenu="" />
-            <BodyContainer>
+            <NotFoundContentContainer>
               <NotFoundImage
                 src={`https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-${theme}-theme-img.png`}
               />
@@ -31,9 +32,9 @@ const NotFound = () => (
               <NotFoundPageDescription>
                 we are sorry, the page you requested could not be found.
               </NotFoundPageDescription>
-            </BodyContainer>
-          </NotFoundContainer>
-        </>
+            </NotFoundContentContainer>
+          </BodyContainer>
+        </NotFoundContainer>
       )
     }}
   </ThemeContext.Consumer>

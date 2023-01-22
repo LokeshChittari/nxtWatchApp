@@ -1,12 +1,17 @@
 import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
-  display: flex;
-  height: 91.5vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   background-color: ${props =>
     props.theme === 'dark' ? '#181818' : '#f9f9f9'};
 `
 export const BodyContainer = styled.div`
+  display: flex;
+  height: 91.5vh;
+`
+export const HomeContentContainer = styled.div`
   width: 100%;
   overflow-y: auto;
 `

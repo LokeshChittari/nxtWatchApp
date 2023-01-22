@@ -21,75 +21,86 @@ const SideMenu = props => {
   return (
     <NavContainer theme={theme}>
       <NavItemsList>
-        <Link
+        <MenuItemContainer
           key="home"
-          to="/"
-          style={{textDecoration: 'none', outline: 'none'}}
+          isActive={activeMenu === 'HOME'}
+          theme={theme}
         >
-          <MenuItemContainer isActive={activeMenu === 'HOME'} theme={theme}>
-            <AiFillHome
-              style={{
-                color: activeMenu === 'HOME' ? '#ff0b37' : '#475569',
-                fontSize: '20px',
-                marginLeft: '25px',
-              }}
-            />
-            <MenuItem isActive={activeMenu === 'HOME'}>Home</MenuItem>
-          </MenuItemContainer>
-        </Link>
-        <Link
+          <AiFillHome
+            style={{
+              color: activeMenu === 'HOME' ? '#ff0b37' : '#475569',
+              fontSize: '20px',
+              marginLeft: '25px',
+            }}
+          />
+          <Link to="/" style={{textDecoration: 'none', outline: 'none'}}>
+            <MenuItem theme={theme} isActive={activeMenu === 'HOME'}>
+              Home
+            </MenuItem>
+          </Link>
+        </MenuItemContainer>
+
+        <MenuItemContainer
           key="trending"
-          to="/trending"
-          style={{textDecoration: 'none', outline: 'none'}}
+          isActive={activeMenu === 'TRENDING'}
+          theme={theme}
         >
-          <MenuItemContainer isActive={activeMenu === 'TRENDING'} theme={theme}>
-            <HiFire
-              style={{
-                color: activeMenu === 'TRENDING' ? '#ff0b37' : '#475569',
-                fontSize: '20px',
-                marginLeft: '25px',
-              }}
-            />
-            <MenuItem isActive={activeMenu === 'TRENDING'}>Trending</MenuItem>
-          </MenuItemContainer>
-        </Link>
-        <Link
-          key="gaming"
-          to="/gaming"
-          style={{textDecoration: 'none', outline: 'none'}}
-        >
-          <MenuItemContainer isActive={activeMenu === 'GAMING'} theme={theme}>
-            <SiYoutubegaming
-              style={{
-                color: activeMenu === 'GAMING' ? '#ff0b37' : '#475569',
-                fontSize: '20px',
-                marginLeft: '25px',
-              }}
-            />
-            <MenuItem isActive={activeMenu === 'GAMING'}>Gaming</MenuItem>
-          </MenuItemContainer>
-        </Link>
-        <Link
-          key="savedVideos"
-          to="/saved-videos"
-          style={{textDecoration: 'none', outline: 'none'}}
-        >
-          <MenuItemContainer
-            isActive={activeMenu === 'SAVED_VIDEOS'}
-            theme={theme}
+          <HiFire
+            style={{
+              color: activeMenu === 'TRENDING' ? '#ff0b37' : '#475569',
+              fontSize: '20px',
+              marginLeft: '25px',
+            }}
+          />
+          <Link
+            to="/trending"
+            style={{textDecoration: 'none', outline: 'none'}}
           >
-            <MdPlaylistAdd
-              style={{
-                color: activeMenu === 'SAVED_VIDEOS' ? '#ff0b37' : '#475569',
-                fontSize: '20px',
-                marginLeft: '25px',
-              }}
-            />
-            <MenuItem isActive={activeMenu === 'SAVED_VIDEOS'}>
+            <MenuItem theme={theme} isActive={activeMenu === 'TRENDING'}>
+              Trending
+            </MenuItem>
+          </Link>
+        </MenuItemContainer>
+
+        <MenuItemContainer
+          key="gaming"
+          isActive={activeMenu === 'GAMING'}
+          theme={theme}
+        >
+          <SiYoutubegaming
+            style={{
+              color: activeMenu === 'GAMING' ? '#ff0b37' : '#475569',
+              fontSize: '20px',
+              marginLeft: '25px',
+            }}
+          />
+          <Link to="/gaming" style={{textDecoration: 'none', outline: 'none'}}>
+            <MenuItem theme={theme} isActive={activeMenu === 'GAMING'}>
+              Gaming
+            </MenuItem>
+          </Link>
+        </MenuItemContainer>
+        <MenuItemContainer
+          key="savedVideos"
+          isActive={activeMenu === 'SAVED_VIDEOS'}
+          theme={theme}
+        >
+          <MdPlaylistAdd
+            style={{
+              color: activeMenu === 'SAVED_VIDEOS' ? '#ff0b37' : '#475569',
+              fontSize: '20px',
+              marginLeft: '25px',
+            }}
+          />
+          <Link
+            to="/saved-videos"
+            style={{textDecoration: 'none', outline: 'none'}}
+          >
+            <MenuItem theme={theme} isActive={activeMenu === 'SAVED_VIDEOS'}>
               Saved Videos
             </MenuItem>
-          </MenuItemContainer>
-        </Link>
+          </Link>
+        </MenuItemContainer>
       </NavItemsList>
       <ContactUsContainer>
         <ContactUsHeading theme={theme}>CONTACT US</ContactUsHeading>

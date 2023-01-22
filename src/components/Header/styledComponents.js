@@ -21,8 +21,8 @@ export const Navbar = styled.nav`
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
+    align-items: center;
+    padding: 15px;
     background-color: ${props =>
       props.theme === 'dark' ? '#212121' : '#ffffff'};
   }
@@ -31,8 +31,8 @@ export const Navbar = styled.nav`
 export const NavBarMobile = styled.nav`
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
+    align-items: center;
+    padding: 10px;
     background-color: ${props =>
       props.theme === 'dark' ? '#212121' : '#ffffff'};
   }
@@ -44,10 +44,13 @@ export const Logo = styled.img`
   height: 30px;
   width: 120px;
 `
-export const NavItems = styled.div`
+export const NavItemsList = styled.ul`
+  list-style-type: none;
+  padding-left: 0;
   display: flex;
   align-items: center;
 `
+export const NavItem = styled.li``
 export const ThemeButton = styled.button`
   border-width: 0;
   background-color: transparent;
@@ -126,14 +129,14 @@ export const NavMenuList = styled.ul`
   align-items: center;
 `
 
-export const NavItemContainer = styled.li`
+export const NavMenuItemContainer = styled.li`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${props => activeMenuBg(props)};
-  color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
 `
-export const NavItem = styled.div`
+export const NavMenuItem = styled.div`
   width: 150px;
   display: flex;
   align-items: center;
@@ -145,11 +148,12 @@ export const IconBox = styled.div`
   padding: 0;
   margin: 0;
 `
-export const NavItemName = styled.p`
+export const NavMenuItemName = styled.p`
   font-family: 'Roboto';
   font-weight: ${props => (props.isActive === true ? 'bold' : 'normal')};
   margin-left: 20px;
   text-align: left;
+  color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
 `
 
 export const LogoutModalContainer = styled.div`

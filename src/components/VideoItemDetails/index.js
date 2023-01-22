@@ -13,6 +13,7 @@ import ThemeContext from '../../context/ThemeContext'
 import {
   VideoItemDetailsContainer,
   BodyContainer,
+  VideoItemContentContainer,
   VideoDetailsItemContainer,
   TitleName,
   RowAlign,
@@ -293,18 +294,18 @@ class VideoItemDetails extends Component {
             const {isDarkTheme} = value
             const theme = isDarkTheme ? 'dark' : 'light'
             return (
-              <>
+              <VideoItemDetailsContainer
+                data-testid="videoItemDetails"
+                theme={theme}
+              >
                 <Header activeMenu="" />
-                <VideoItemDetailsContainer
-                  theme={theme}
-                  data-testid="videoItemDetails"
-                >
+                <BodyContainer>
                   <SideMenu theme={theme} activeMenu="" />
-                  <BodyContainer theme={theme}>
+                  <VideoItemContentContainer theme={theme}>
                     {this.renderResponse(value)}
-                  </BodyContainer>
-                </VideoItemDetailsContainer>
-              </>
+                  </VideoItemContentContainer>
+                </BodyContainer>
+              </VideoItemDetailsContainer>
             )
           }}
         </ThemeContext.Consumer>

@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 
 export const NotFoundContainer = styled.div`
-  height: 91.5vh;
+  height: 100vh;
   width: 100vw;
-  display: flex;
+  overflow: hidden;
   background-color: ${props =>
     props.theme === 'dark' ? '#181818' : '#f9f9f9'}; ;
 `
 export const BodyContainer = styled.div`
+  height: 91.5vh;
+  width: 100vw;
+  display: flex;
+`
+export const NotFoundContentContainer = styled.div`
   width: 100%;
   overflow-y: auto;
   display: flex;

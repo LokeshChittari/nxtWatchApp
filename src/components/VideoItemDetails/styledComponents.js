@@ -15,15 +15,22 @@ const getButtonColor = props => {
 }
 
 export const VideoItemDetailsContainer = styled.div`
-  height: 91.5vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   background-color: ${props =>
     props.theme === 'dark' ? '#181818' : '#f9f9f9'};
-  display: flex;
 `
 
 export const BodyContainer = styled.div`
+  height: 91.5vh;
+  display: flex;
+`
+
+export const VideoItemContentContainer = styled.div`
   width: 100%;
   overflow-y: auto;
+  padding-bottom: 25px;
   @media screen and (min-width: 768px) {
     padding: 25px;
   }

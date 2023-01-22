@@ -12,6 +12,7 @@ import ThemeContext from '../../context/ThemeContext'
 import {
   HomeContainer,
   BodyContainer,
+  HomeContentContainer,
   BannerContainer,
   CloseButton,
   LogoContainer,
@@ -242,11 +243,11 @@ class Home extends Component {
           const theme = isDarkTheme ? 'dark' : 'light'
 
           return (
-            <>
+            <HomeContainer data-testid="home" theme={theme}>
               <Header activeMenu="HOME" />
-              <HomeContainer theme={theme} data-testid="home">
+              <BodyContainer>
                 <SideMenu theme={theme} activeMenu="HOME" />
-                <BodyContainer theme={theme}>
+                <HomeContentContainer theme={theme}>
                   {showBanner && (
                     <BannerContainer data-testid="banner">
                       <LogoContainer>
@@ -295,9 +296,9 @@ class Home extends Component {
                     </SearchContainer>
                     {this.renderResponse(theme)}
                   </VideosListContainer>
-                </BodyContainer>
-              </HomeContainer>
-            </>
+                </HomeContentContainer>
+              </BodyContainer>
+            </HomeContainer>
           )
         }}
       </ThemeContext.Consumer>
