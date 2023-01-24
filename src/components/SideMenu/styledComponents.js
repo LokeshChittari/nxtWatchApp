@@ -54,9 +54,11 @@ export const ContactUsContainer = styled.div`
   margin-bottom: 25px;
 `
 
-export const ContactUsHeading = styled.h2`
+export const ContactUsHeading = styled.p`
   font-family: 'Roboto';
   color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
+  font-weight: bold;
+  font-size: 24px;
 `
 export const IconsList = styled.ul`
   list-style-type: none;
@@ -64,11 +66,14 @@ export const IconsList = styled.ul`
   display: flex;
   align-items: center;
 `
+export const IconItem = styled.div`
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+`
 
 export const Icon = styled.img`
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
+  width: 100%;
 `
 
 export const Note = styled.p`

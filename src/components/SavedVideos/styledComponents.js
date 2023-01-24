@@ -5,7 +5,7 @@ export const SavedVideosContainer = styled.div`
   width: 100vw;
   overflow: hidden;
   background-color: ${props =>
-    props.theme === 'dark' ? '#181818' : '#f9f9f9'};
+    props.theme === 'dark' ? '#0f0f0f' : '#f9f9f9'};
 `
 export const BodyContainer = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ export const BannerContainer = styled.div`
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: ${props =>
-    props.theme === 'dark' ? '#0f0f0f' : '#f1f1f1'};
+    props.theme === 'dark' ? '#181818' : '#f1f1f1'};
   @media screen and (min-width: 576px) {
     padding: 35px;
   }
@@ -38,7 +38,7 @@ export const MenuIconContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${props =>
-    props.theme === 'dark' ? '#181818' : '#cbd5e1'};
+    props.theme === 'dark' ? '#424242' : '#cbd5e1'};
   border-radius: 50%;
   color: #ff0b37;
   font-size: 24px;

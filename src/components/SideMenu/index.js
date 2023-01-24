@@ -12,6 +12,7 @@ import {
   ContactUsContainer,
   ContactUsHeading,
   IconsList,
+  IconItem,
   Icon,
   Note,
 } from './styledComponents'
@@ -33,11 +34,18 @@ const SideMenu = props => {
               marginLeft: '25px',
             }}
           />
-          <Link to="/" style={{textDecoration: 'none', outline: 'none'}}>
-            <MenuItem theme={theme} isActive={activeMenu === 'HOME'}>
+          <MenuItem theme={theme} isActive={activeMenu === 'HOME'}>
+            <Link
+              to="/"
+              style={{
+                textDecoration: 'none',
+                outline: 'none',
+                color: 'inherit',
+              }}
+            >
               Home
-            </MenuItem>
-          </Link>
+            </Link>
+          </MenuItem>
         </MenuItemContainer>
 
         <MenuItemContainer
@@ -52,14 +60,18 @@ const SideMenu = props => {
               marginLeft: '25px',
             }}
           />
-          <Link
-            to="/trending"
-            style={{textDecoration: 'none', outline: 'none'}}
-          >
-            <MenuItem theme={theme} isActive={activeMenu === 'TRENDING'}>
+          <MenuItem theme={theme} isActive={activeMenu === 'TRENDING'}>
+            <Link
+              to="/trending"
+              style={{
+                textDecoration: 'none',
+                outline: 'none',
+                color: 'inherit',
+              }}
+            >
               Trending
-            </MenuItem>
-          </Link>
+            </Link>
+          </MenuItem>
         </MenuItemContainer>
 
         <MenuItemContainer
@@ -74,11 +86,18 @@ const SideMenu = props => {
               marginLeft: '25px',
             }}
           />
-          <Link to="/gaming" style={{textDecoration: 'none', outline: 'none'}}>
-            <MenuItem theme={theme} isActive={activeMenu === 'GAMING'}>
+          <MenuItem theme={theme} isActive={activeMenu === 'GAMING'}>
+            <Link
+              to="/gaming"
+              style={{
+                textDecoration: 'none',
+                outline: 'none',
+                color: 'inherit',
+              }}
+            >
               Gaming
-            </MenuItem>
-          </Link>
+            </Link>
+          </MenuItem>
         </MenuItemContainer>
         <MenuItemContainer
           key="savedVideos"
@@ -92,31 +111,41 @@ const SideMenu = props => {
               marginLeft: '25px',
             }}
           />
-          <Link
-            to="/saved-videos"
-            style={{textDecoration: 'none', outline: 'none'}}
-          >
-            <MenuItem theme={theme} isActive={activeMenu === 'SAVED_VIDEOS'}>
+          <MenuItem theme={theme} isActive={activeMenu === 'SAVED_VIDEOS'}>
+            <Link
+              to="/saved-videos"
+              style={{
+                textDecoration: 'none',
+                outline: 'none',
+                color: 'inherit',
+              }}
+            >
               Saved Videos
-            </MenuItem>
-          </Link>
+            </Link>
+          </MenuItem>
         </MenuItemContainer>
       </NavItemsList>
       <ContactUsContainer>
         <ContactUsHeading theme={theme}>CONTACT US</ContactUsHeading>
         <IconsList>
-          <Icon
-            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
-            alt="facebook logo"
-          />
-          <Icon
-            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
-            alt="twitter logo"
-          />
-          <Icon
-            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
-            alt="linked in logo"
-          />
+          <IconItem key="facebook">
+            <Icon
+              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+              alt="facebook logo"
+            />
+          </IconItem>
+          <IconItem key="twitter">
+            <Icon
+              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+              alt="twitter logo"
+            />
+          </IconItem>
+          <IconItem key="linkedin">
+            <Icon
+              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+              alt="linked in logo"
+            />
+          </IconItem>
         </IconsList>
         <Note theme={theme}>
           Enjoy! Now to see your channels and recommendations!

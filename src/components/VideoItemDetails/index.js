@@ -18,7 +18,9 @@ import {
   TitleName,
   RowAlign,
   ViewsAndTimeline,
+  ViewsCount,
   Dot,
+  PublishedDate,
   LoaderContainer,
   RetryButton,
   LikeAndSaveButtons,
@@ -168,9 +170,11 @@ class VideoItemDetails extends Component {
           <TitleName theme={theme}>{videoDetails.title}</TitleName>
           <RowAlign>
             <ViewsAndTimeline>
-              {videoDetails.viewCount} views
-              <Dot>.</Dot>
-              {formatDistanceToNow(new Date(videoDetails.publishedAt))}
+              <ViewsCount>{videoDetails.viewCount} views</ViewsCount>
+              <Dot>&#9679;</Dot>
+              <PublishedDate>
+                {formatDistanceToNow(new Date(videoDetails.publishedAt))}
+              </PublishedDate>
             </ViewsAndTimeline>
             <LikeAndSaveButtons>
               <ButtonContainer>
@@ -239,7 +243,9 @@ class VideoItemDetails extends Component {
               <Subscribers>
                 {videoDetails.channel.subscriberCount} subscribers
               </Subscribers>
-              <Description>{videoDetails.description}</Description>
+              <Description theme={theme}>
+                {videoDetails.description}
+              </Description>
             </DetailsContainer>
           </ChannelLogoAndDetails>
           <DescriptionMobile theme={theme}>

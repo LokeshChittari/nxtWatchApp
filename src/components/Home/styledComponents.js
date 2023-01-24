@@ -71,22 +71,19 @@ export const CustomButton = styled.button`
   padding: 10px;
 `
 
-export const VideosListContainer = styled.div`
-  padding: 15px;
-  @media screen and (min-width: 768px) {
-    padding: 25px;
-  }
-`
 export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  padding: 15px;
 
   @media screen and (min-width: 576px) {
     width: 80%;
+    padding: 25px;
   }
   @media screen and (min-width: 768px) {
     width: 50%;
+    padding: 25px;
   }
 `
 export const SearchInput = styled.input`
@@ -110,12 +107,16 @@ export const SearchButton = styled.button`
   outline: none;
 `
 
-export const VideosList = styled.ul`
+export const VideosListContainer = styled.ul`
   list-style-type: none;
   padding-left: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  //   padding: 15px;
+  @media screen and (min-width: 768px) {
+    padding: 25px;
+  }
 `
 
 export const VideoItem = styled.li`
@@ -180,34 +181,64 @@ export const TitleName = styled.p`
     font-weight:500;
 `
 export const ChannelName = styled.p`
+  display: none;
+  @media screen and (min-width: 567px) {
+    display: block;
+    font-family: 'Roboto';
+    color: #475569;
+    font-weight: 500;
+    font-size: 14px;
+  }
+`
+export const ChannelNameESM = styled.p`
   font-family: 'Roboto';
   color: #475569;
   font-weight: 500;
   font-size: 14px;
-  //   margin-bottom: 0;
+  @media screen and (min-width: 567px) {
+    display: none;
+  }
 `
+
 export const ViewsAndTimeline = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-family: 'Roboto';
   color: #475569;
 `
 
-export const Dot = styled.span`
+export const ViewsCount = styled.p`
+  font-family: 'Roboto';
+  color: #475569;
+`
+export const PublishedDate = styled.p`
+  font-family: 'Roboto';
+  color: #475569;
+`
+export const Dot = styled.p`
+  color: #475569;
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 8px;
+  //   font-size: 40px;
+`
+export const DotESM = styled.p`
+  color: #475569;
+  margin-left: 5px;
+  margin-right: 5px;
   @media screen and (min-width: 576px) {
-    font-size: 15px;
+    display: none;
   }
 `
 export const FailureViewContainer = styled.div`
-  height: 65vh;
+  height: 91.5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `
 export const FailureImage = styled.img`
-  width: 50%;
+  width: 45%;
   margin-top: 30px;
   @media screen and(min-width:576px) {
     width: 450px;

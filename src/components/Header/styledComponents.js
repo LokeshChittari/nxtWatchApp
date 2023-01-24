@@ -16,28 +16,16 @@ const activeMenuBg = props => {
 }
 
 export const Navbar = styled.nav`
-  display: none;
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background-color: ${props =>
-      props.theme === 'dark' ? '#212121' : '#ffffff'};
-  }
-`
-
-export const NavBarMobile = styled.nav`
-    display: flex;
+   display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     background-color: ${props =>
       props.theme === 'dark' ? '#212121' : '#ffffff'};
   }
-  @media screen and (min-width:768px){
-      display:none;
+
+  @media screen and (min-width: 768px) {
+    padding:15px;
   }
 `
 export const Logo = styled.img`
@@ -51,6 +39,30 @@ export const NavItemsList = styled.ul`
   align-items: center;
 `
 export const NavItem = styled.li``
+export const NavItemProfileIcon = styled.li`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+`
+export const NavItemHamburgerIcon = styled.li`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`
+
+export const NavItemLogoutButton = styled.li`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+`
+
+export const NavItemLogoutIcon = styled.li`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`
 export const ThemeButton = styled.button`
   border-width: 0;
   background-color: transparent;
@@ -178,7 +190,7 @@ export const LogoutPopupModal = styled.div`
     props.theme === 'dark' ? '#212121' : '#ffffff'};
 `
 
-export const LogoutNote = styled.div`
+export const LogoutNote = styled.p`
   font-family: 'Roboto';
   color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
   text-align: center;

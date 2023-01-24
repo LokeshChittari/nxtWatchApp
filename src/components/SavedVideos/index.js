@@ -41,7 +41,7 @@ const SavedVideos = () => {
         <MenuIconContainer theme={theme}>
           <HiFire />
         </MenuIconContainer>
-        <MenuHeading theme={theme}>Trending</MenuHeading>
+        <MenuHeading theme={theme}>Saved Videos</MenuHeading>
       </BannerContainer>
       <VideosListContainer theme={theme}>
         {savedVideosList.map(videoItem => (

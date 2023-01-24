@@ -19,11 +19,10 @@ import {
   Logo,
   Description,
   CustomButton,
-  VideosListContainer,
   SearchContainer,
   SearchInput,
   SearchButton,
-  VideosList,
+  VideosListContainer,
   VideoItem,
   Thumbnail,
   VideoDetailsContainer,
@@ -33,9 +32,11 @@ import {
   TitleName,
   ChannelName,
   ViewsAndTimeline,
-  //   Views,
+  ViewsCount,
+  ChannelNameESM,
+  DotESM,
   Dot,
-  //   TimeLine,
+  PublishedDate,
   FailureViewContainer,
   FailureImage,
   FailureViewResponse,
@@ -154,7 +155,7 @@ class Home extends Component {
       return this.renderNoResponseView(theme)
     }
     return (
-      <VideosList>
+      <VideosListContainer>
         {videosList.map(videoItem => (
           <VideoItem key={videoItem.id}>
             <Link
@@ -173,9 +174,13 @@ class Home extends Component {
                   <TitleName theme={theme}>{videoItem.title}</TitleName>
                   <ChannelName>{videoItem.channel.name}</ChannelName>
                   <ViewsAndTimeline>
-                    {videoItem.viewCount} Views
+                    <ChannelNameESM>{videoItem.channel.name}</ChannelNameESM>
+                    <DotESM>&#9679;</DotESM>
+                    <ViewsCount>{videoItem.viewCount} Views</ViewsCount>
                     <Dot>&#9679;</Dot>
-                    {formatDistanceToNow(new Date(videoItem.publishedAt))}
+                    <PublishedDate>
+                      {formatDistanceToNow(new Date(videoItem.publishedAt))}
+                    </PublishedDate>
                   </ViewsAndTimeline>
                 </VideoDetails>
               </VideoDetailsContainer>
@@ -198,7 +203,7 @@ class Home extends Component {
             </Link>
           </VideoItem>
         ))}
-      </VideosList>
+      </VideosListContainer>
     )
   }
 
@@ -271,31 +276,29 @@ class Home extends Component {
                       <CustomButton type="button">GET IT NOW</CustomButton>
                     </BannerContainer>
                   )}
-                  <VideosListContainer>
-                    <SearchContainer>
-                      <SearchInput
-                        type="search"
-                        placeholder="Search"
-                        onChange={this.onEnterSearchInput}
-                        theme={theme}
+                  <SearchContainer>
+                    <SearchInput
+                      type="search"
+                      placeholder="Search"
+                      onChange={this.onEnterSearchInput}
+                      theme={theme}
+                    />
+                    <SearchButton
+                      type="button"
+                      theme={theme}
+                      value={searchInput}
+                      onClick={this.onClickSearch}
+                      data-testid="search"
+                    >
+                      <AiOutlineSearch
+                        style={{
+                          fontSize: '20px',
+                          color: isDarkTheme ? '#7e858e' : '#000000',
+                        }}
                       />
-                      <SearchButton
-                        type="button"
-                        theme={theme}
-                        value={searchInput}
-                        onClick={this.onClickSearch}
-                        data-testid="search"
-                      >
-                        <AiOutlineSearch
-                          style={{
-                            fontSize: '20px',
-                            color: isDarkTheme ? '#7e858e' : '#000000',
-                          }}
-                        />
-                      </SearchButton>
-                    </SearchContainer>
-                    {this.renderResponse(theme)}
-                  </VideosListContainer>
+                    </SearchButton>
+                  </SearchContainer>
+                  {this.renderResponse(theme)}
                 </HomeContentContainer>
               </BodyContainer>
             </HomeContainer>

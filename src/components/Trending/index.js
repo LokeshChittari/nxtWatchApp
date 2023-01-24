@@ -19,9 +19,12 @@ import {
   VideosListContainer,
   VideoItemContainer,
   Thumbnail,
+  ChannelNameESM,
+  DotESM,
+  ViewsCount,
+  PublishedDate,
   LoaderContainer,
   VideoDetailsContainer,
-  VideoDetailsContainerESM,
   VideoDetails,
   ChannelLogo,
   TitleName,
@@ -130,32 +133,24 @@ class Trending extends Component {
               <VideoItemContainer>
                 <Thumbnail src={videoItem.thumbnailUrl} alt="video thumbnail" />
                 <VideoDetailsContainer>
-                  <VideoDetails>
-                    <TitleName theme={theme}>{videoItem.title}</TitleName>
-                    <ChannelName>{videoItem.channel.name}</ChannelName>
-                    <ViewsAndTimeline>
-                      {videoItem.viewCount} Views
-                      <Dot>&#9679;</Dot>
-                      {formatDistanceToNow(new Date(videoItem.publishedAt))}
-                    </ViewsAndTimeline>
-                  </VideoDetails>
-                </VideoDetailsContainer>
-                <VideoDetailsContainerESM>
                   <ChannelLogo
                     src={videoItem.channel.profileImageUrl}
                     alt="channel logo"
                   />
                   <VideoDetails>
                     <TitleName theme={theme}>{videoItem.title}</TitleName>
+                    <ChannelName>{videoItem.channel.name}</ChannelName>
                     <ViewsAndTimeline>
-                      {videoItem.channel.name}
+                      <ChannelNameESM>{videoItem.channel.name}</ChannelNameESM>
+                      <DotESM>&#9679;</DotESM>
+                      <ViewsCount>{videoItem.viewCount} Views</ViewsCount>
                       <Dot>&#9679;</Dot>
-                      {videoItem.viewCount} Views
-                      <Dot>&#9679;</Dot>
-                      {formatDistanceToNow(new Date(videoItem.publishedAt))}
+                      <PublishedDate>
+                        {formatDistanceToNow(new Date(videoItem.publishedAt))}
+                      </PublishedDate>
                     </ViewsAndTimeline>
                   </VideoDetails>
-                </VideoDetailsContainerESM>
+                </VideoDetailsContainer>
               </VideoItemContainer>
             </Link>
           ))}

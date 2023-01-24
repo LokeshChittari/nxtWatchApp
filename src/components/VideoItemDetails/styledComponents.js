@@ -19,7 +19,7 @@ export const VideoItemDetailsContainer = styled.div`
   width: 100vw;
   overflow: hidden;
   background-color: ${props =>
-    props.theme === 'dark' ? '#181818' : '#f9f9f9'};
+    props.theme === 'dark' ? '#0f0f0f' : '#f9f9f9'};
 `
 
 export const BodyContainer = styled.div`
@@ -61,18 +61,28 @@ export const RowAlign = styled.div`
   }
 `
 export const ViewsAndTimeline = styled.div`
-  font-family: 'Roboto';
-  color: #475569;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
   }
 `
 
-export const Dot = styled.span`
+export const ViewsCount = styled.p`
+  font-family: 'Roboto';
+  color: #475569;
+`
+export const PublishedDate = styled.p`
+  font-family: 'Roboto';
+  color: #475569;
+`
+export const Dot = styled.p`
+  color: #475569;
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 40px;
+  //   font-size: 40px;
 `
 
 export const LikeAndSaveButtons = styled.div`
@@ -144,8 +154,9 @@ export const DescriptionMobile = styled.p`
 export const Description = styled.p`
   display: none;
   @media screen and (min-width: 768px) {
-    font-family: 'Roboto';
     display: block;
+    font-family: 'Roboto';
+    color: ${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
   }
 `
 

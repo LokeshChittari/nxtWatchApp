@@ -5,7 +5,7 @@ export const TrendingContainer = styled.div`
   width: 100vw;
   overflow: hidden;
   background-color: ${props =>
-    props.theme === 'dark' ? '#181818' : '#f9f9f9'};
+    props.theme === 'dark' ? '#0f0f0f' : '#f9f9f9'};
 `
 
 export const BodyContainer = styled.div`
@@ -25,7 +25,7 @@ export const BannerContainer = styled.div`
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: ${props =>
-    props.theme === 'dark' ? '#0f0f0f' : '#f1f1f1'};
+    props.theme === 'dark' ? '#181818' : '#f1f1f1'};
   @media screen and (min-width: 576px) {
     padding: 35px;
   }
@@ -38,7 +38,7 @@ export const MenuIconContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${props =>
-    props.theme === 'dark' ? '#181818' : '#cbd5e1'};
+    props.theme === 'dark' ? '#424242' : '#cbd5e1'};
   border-radius: 50%;
   color: #ff0b37;
   font-size: 24px;
@@ -82,30 +82,26 @@ export const Thumbnail = styled.img`
   }
 `
 export const VideoDetailsContainer = styled.div`
-  display: none;
-  @media screen and (min-width: 576px) {
-    display: block;
-    width: 100%;
+  width: 100%;
+  @media screen and (max-width: 575px) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    margin-top: 20px;
+    padding-right: 10px;
   }
 `
 
-export const VideoDetailsContainerESM = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-bottom: 30px;
-  padding-left: 10px;
-  margin-top: 20px;
-  padding-right: 10px;
-  @media screen and (min-width: 576px) {
-    display: none;
-  }
-`
 export const ChannelLogo = styled.img`
   width: 30px;
   height: 30px;
   //   margin-top: 10px;
   margin-right: 10px;
+  @media screen and (min-width: 576px) {
+    display: none;
+  }
 `
 
 export const VideoDetails = styled.div`
@@ -123,22 +119,53 @@ export const TitleName = styled.p`
     font-weight:500;
 `
 export const ChannelName = styled.p`
+  display: none;
+  @media screen and (min-width: 567px) {
+    display: block;
+    font-family: 'Roboto';
+    color: #475569;
+    font-weight: 500;
+    font-size: 14px;
+  }
+`
+export const ChannelNameESM = styled.p`
   font-family: 'Roboto';
   color: #475569;
   font-weight: 500;
   font-size: 14px;
+  @media screen and (min-width: 567px) {
+    display: none;
+  }
 `
+
 export const ViewsAndTimeline = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-family: 'Roboto';
   color: #475569;
 `
 
-export const Dot = styled.span`
+export const ViewsCount = styled.p`
+  font-family: 'Roboto';
+  color: #475569;
+`
+export const PublishedDate = styled.p`
+  font-family: 'Roboto';
+  color: #475569;
+`
+export const Dot = styled.p`
+  color: #475569;
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 8px;
+  //   font-size: 40px;
+`
+export const DotESM = styled.p`
+  color: #475569;
+  margin-left: 5px;
+  margin-right: 5px;
   @media screen and (min-width: 576px) {
-    font-size: 15px;
+    display: none;
   }
 `
 export const FailureViewContainer = styled.div`
@@ -175,7 +202,7 @@ export const RetryButton = styled.button`
 `
 
 export const LoaderContainer = styled.div`
-  height: 65vh;
+  height: 91.5vh;
   display: flex;
   justify-content: center;
   align-items: center;
