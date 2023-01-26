@@ -26,7 +26,6 @@ import {
   VideoItem,
   Thumbnail,
   VideoDetailsContainer,
-  VideoDetailsContainerESM,
   ChannelLogo,
   VideoDetails,
   TitleName,
@@ -184,22 +183,6 @@ class Home extends Component {
                   </ViewsAndTimeline>
                 </VideoDetails>
               </VideoDetailsContainer>
-              <VideoDetailsContainerESM>
-                <ChannelLogo
-                  src={videoItem.channel.profileImageUrl}
-                  alt="channel logo"
-                />
-                <VideoDetails>
-                  <TitleName theme={theme}>{videoItem.title}</TitleName>
-                  <ViewsAndTimeline>
-                    {videoItem.channel.name}
-                    <Dot>&#9679;</Dot>
-                    {videoItem.viewCount} Views
-                    <Dot>&#9679;</Dot>
-                    {formatDistanceToNow(new Date(videoItem.publishedAt))}
-                  </ViewsAndTimeline>
-                </VideoDetails>
-              </VideoDetailsContainerESM>
             </Link>
           </VideoItem>
         ))}

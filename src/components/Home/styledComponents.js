@@ -141,24 +141,11 @@ export const Thumbnail = styled.img`
   width: 100%;
 `
 export const VideoDetailsContainer = styled.div`
-  display: none;
-  @media screen and (min-width: 576px) {
-    display: flex;
-    padding-left: 0;
-  }
-`
-
-export const VideoDetailsContainerESM = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  //   margin-bottom: 20px;
   padding-left: 10px;
-  //   margin-top: 20px;
   padding-right: 10px;
-  @media screen and (min-width: 576px) {
-    display: none;
-  }
 `
 export const ChannelLogo = styled.img`
   width: 30px;
@@ -179,6 +166,7 @@ export const TitleName = styled.p`
     font-size:12px;
     color:${props => (props.theme === 'dark' ? '#ffffff' : '#000000')};
     font-weight:500;
+    font-size:14px;
 `
 export const ChannelName = styled.p`
   display: none;
@@ -188,13 +176,16 @@ export const ChannelName = styled.p`
     color: #475569;
     font-weight: 500;
     font-size: 14px;
+    margin-bottom: 0;
   }
 `
 export const ChannelNameESM = styled.p`
   font-family: 'Roboto';
   color: #475569;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
   @media screen and (min-width: 567px) {
     display: none;
   }
@@ -203,6 +194,7 @@ export const ChannelNameESM = styled.p`
 export const ViewsAndTimeline = styled.div`
   display: flex;
   flex-direction: row;
+  //   justify-content: flex-start;
   align-items: center;
   font-family: 'Roboto';
   color: #475569;
@@ -211,21 +203,25 @@ export const ViewsAndTimeline = styled.div`
 export const ViewsCount = styled.p`
   font-family: 'Roboto';
   color: #475569;
+  font-size: 12px;
 `
 export const PublishedDate = styled.p`
   font-family: 'Roboto';
   color: #475569;
+  font-size: 12px;
 `
-export const Dot = styled.p`
+export const Dot = styled.span`
   color: #475569;
   margin-left: 5px;
   margin-right: 5px;
   //   font-size: 40px;
+  font-size: 12px;
 `
-export const DotESM = styled.p`
+export const DotESM = styled.span`
   color: #475569;
   margin-left: 5px;
   margin-right: 5px;
+  font-size: 12px;
   @media screen and (min-width: 576px) {
     display: none;
   }
